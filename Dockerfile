@@ -1,6 +1,6 @@
 FROM eclipse-temurin:8-jre-alpine AS builder 
 WORKDIR extracted
-COPY --from=maven_builder target/*.jar app.jar
+COPY target/*.jar app.jar
 RUN java -Djarmode=layertools -jar app.jar extract
 
 FROM eclipse-temurin:8-jre-alpine 
